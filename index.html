@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #canvas {
+            border: 2px solid black;
+            width: 1200px;
+            height: 600px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="loadImageInCanvas()">Carregar imagem</button>
+        <button onclick="invertColors()">Inverter cores</button>
+        <button onclick="applyGrayScale()">escala de cinza</button>
+        <fieldset>
+            <label for="thresholdInput" id="thresholdValue">125</label>
+            <input type="range" min="0" max="255" value="125" id="thresholdInput">
+            <button onclick="applyThreshold()">aplicar threshold</button>
+        </fieldset>
+    </div>
+    
+    <canvas id="canvas"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
