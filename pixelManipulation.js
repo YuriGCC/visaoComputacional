@@ -15,7 +15,7 @@ function loadImageInCanvas() {
     const img = new Image();
     img.src = "orchid-1200x600.jpg";
     img.onload = () => {
-        ctx.drawImage(img, 0, 0, pixelAreaCanvas.width, pixelAreaCanvas.height);
+        pixelAreaCanvasCtx.drawImage(img, 0, 0, pixelAreaCanvas.width, pixelAreaCanvas.height);
     };  
 }
 
