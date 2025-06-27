@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #canvas {
+        #pixelArea, #visualizationArea {
             border: 2px solid black;
             width: 1200px;
             height: 600px;
@@ -14,21 +14,59 @@
         div {
             margin-bottom: 10px;
         }
+
+        .kernel-mask-section {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .kernel-mask-section input {
+            margin: 5px;
+            width: 50px;
+        }
+
     </style>
 </head>
 <body>
     <div>
-        <button onclick="loadImageInCanvas()">Carregar imagem</button>
-        <button onclick="invertColors()">Inverter cores</button>
-        <button onclick="applyGrayScale()">escala de cinza</button>
-        <fieldset>
-            <label for="thresholdInput" id="thresholdValue">125</label>
-            <input type="range" min="0" max="255" value="125" id="thresholdInput">
-            <button onclick="applyThreshold()">aplicar threshold</button>
-        </fieldset>
+        <h2>Manipulação de pixels de uma imagem</h2>
+        <p> Para saber mais sobre acesse <a href="https://www.everton.mat.br/main/computer/Canvas_and_Images/" target="_blank"> aqui</a></p>
+        <div>
+            <button onclick="loadImageInCanvas()">Carregar imagem</button>
+            <button onclick="invertColors()">Inverter cores</button>
+            <button onclick="applyGrayScale()">escala de cinza</button>
+            <fieldset>
+                <label for="thresholdInput" id="thresholdValue">125</label>
+                <input type="range" min="0" max="255" value="125" id="thresholdInput">
+                <button onclick="applyThreshold()">aplicar threshold</button>
+            </fieldset>
+            <fieldset class="kernel-mask-section">
+                <div>
+                    <input type="number" id="i00" value="0">
+                    <input type="number" id="i01" value="-1">
+                    <input type="number" id="i02" value="0"> <br>
+                    <input type="number" id="i10" value="-1">
+                    <input type="number" id="i11" value="4">
+                    <input type="number" id="i12" value="-1"> <br>
+                    <input type="number" id="i20" value="0">
+                    <input type="number" id="i21" value="-1">
+                    <input type="number" id="i22" value="0">
+                </div>
+                <div>
+                    <input type="number" id="kernelScalar" value="1"> 
+                    <button onclick="applyKernel()">mascarar imagem</button>
+                </div>
+            </fieldset>
+        </div>
+        <canvas id="pixelArea"></canvas>
     </div>
-    
-    <canvas id="canvas"></canvas>
-    <script src="main.js"></script>
+    <div>
+        <div>
+            <canvas id="visualizationArea"></canvas>
+        </div>
+    </div>
+    <script src="pixelManipulation.js"></script>
+    <script src="computacionalVision.js"></script>
 </body>
 </html>
