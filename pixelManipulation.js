@@ -46,7 +46,7 @@ function applyThreshold() {
             pixels[i + j] = pixels[i + j] >= thresholdValue ? 255 : 0;
         }
     }
-    ctx.putImageData(imgData, 0, 0);
+    pixelAreaCanvasCtx.putImageData(imgData, 0, 0);
 }
 
 function applyGrayScale() {
